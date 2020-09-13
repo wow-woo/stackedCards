@@ -1,0 +1,133 @@
+:root {
+  --stack-distance: 120px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #17141d;
+  color: #fff;
+}
+a {
+  text-decoration: none;
+}
+.card_list {
+  display: flex;
+  margin: 200px;
+  padding: 3rem;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.card-list::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.card-list::-webkit-scrollbar-thumb {
+  background: #201c29;
+  border-radius: 10px;
+  box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, 0.25),
+    inset -2px -2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.card-list::-webkit-scrollbar-track {
+  background: linear-gradient(90deg, #201c29, #201c29 1px, #17141d 0, #17141d);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: -1rem 0 3rem rgba(9, 9, 9, 0.7);
+  height: 350px;
+  width: 400;
+  min-width: 250px;
+  border-radius: 16px;
+  padding: 1.5rem;
+  scroll-snap-align: start;
+  /* clear: both; */
+  /* position: relative; */
+
+  transition: 0.2s;
+}
+.card:not(:first-child) {
+  margin-left: calc(-1 * var(--stack-distance));
+}
+
+.card:hover {
+  transform: translateY(-50px);
+  background-color: rgb(199, 197, 197);
+}
+
+.card:hover ~ .card {
+  transform: translateX(var(--stack-distance));
+  background-color: red;
+}
+.card_header {
+  margin-bottom: auto;
+}
+.card_header h2 {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to right, blue, skyblue);
+}
+.card_author {
+  height: 75px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  align-items: center;
+  margin-top: auto;
+}
+.author_avatar {
+  display: block;
+}
+.half_circle {
+  height: 75px;
+  width: 75px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+.author_name_prefix {
+  font-style: normal;
+  font-weight: 700;
+  color: #7a7a8c;
+}
+
+.author_name {
+  margin: 10px;
+}
+
+.tags {
+  margin: 1rem 0 2rem;
+  padding: 0.5rem 0 1rem;
+  line-height: 2;
+  margin-bottom: 0;
+}
+
+.tags a {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.5rem;
+  color: #7a7a8c;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  border: 3px solid #28242f;
+  border-radius: 2rem;
+  padding: 0.2rem 0.85rem 0.25rem;
+  position: relative;
+}
+
+.tags a:hover {
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-clip: text;
+  border-color: white;
+}
