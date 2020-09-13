@@ -66,6 +66,9 @@ a {
   margin-bottom: auto;
 }
 .card_header h2 {
+  color: #fff;
+}
+.card_header h2:hover {
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
